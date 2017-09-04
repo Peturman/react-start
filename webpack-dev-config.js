@@ -24,7 +24,7 @@ export default {
     './src/webpack-public-path',  // 服务器静态资源路径配置，保证首先载入
     'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, 'src/js/index.js')
+    path.resolve(__dirname, 'src/index.js')
   ],
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
@@ -79,22 +79,13 @@ export default {
       },
       {
         test: /\.scss$/,
-        include: path.resolve(__dirname, 'src/js'),
+        include: path.resolve(__dirname, 'src'),
         loaders: [
           'style',
           'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss?parser=postcss-scss'
         ]
       },
-      // 组件样式，需要私有化，单独配置
-      
-      {
-        test: /\.scss$/,
-        include: path.resolve(__dirname, 'src/styles'),
-        loader: 'style!css!postcss?parser=postcss-scss'
-      },
-      // 公有样式，不需要私有化，单独配置
-
       {
         test: /\.css$/,
         include: path.resolve(__dirname, 'node_modules'),

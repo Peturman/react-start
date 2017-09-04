@@ -13,7 +13,7 @@ const pxtorem = require('postcss-pxtorem');
 module.exports = {
   entry: {
   // 文件入口配置
-    index: './src/js/index',
+    index: './src/index',
     vendor: [
       'react',
       'react-dom',
@@ -125,7 +125,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        include: path.resolve(__dirname, 'src/js'),
+        include: path.resolve(__dirname, 'src'),
         loaders: [
           'style',
           'css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
